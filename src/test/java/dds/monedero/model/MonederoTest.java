@@ -1,5 +1,6 @@
 package dds.monedero.model;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +20,9 @@ public class MonederoTest {
 
   @Test
   public void Poner() {
+	double delta = 0;
     cuenta.poner(1500);
+    Assert.assertEquals(cuenta.getSaldo(),1500,1500);
   }
 
   @Test(expected = MontoNegativoException.class)
@@ -32,6 +35,7 @@ public class MonederoTest {
     cuenta.poner(1500);
     cuenta.poner(456);
     cuenta.poner(1900);
+    Assert.assertEquals(cuenta.getSaldo(),1500+456+1900,3856);
   }
 
   @Test(expected = MaximaCantidadDepositosException.class)
