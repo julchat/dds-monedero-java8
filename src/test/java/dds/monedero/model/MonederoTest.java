@@ -13,7 +13,8 @@ public class MonederoTest {
 
   @Before
   public void init() {
-    cuenta = new Cuenta();
+    builderCuenta builder = new builderCuenta();
+    cuenta = builder.construite();
   }
 
   @Test

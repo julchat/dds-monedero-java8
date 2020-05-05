@@ -1,0 +1,13 @@
+Code Smells encontrados en Monedero
+
+1) La igualación en private double saldo = 0 está de más
+2) Nadie va a usar el método set movimientos, solo sirve para construir el objeto, que tranquilamente
+esto podría ser puesto en el constructor de la clase o armar un builder y quitarlo definitivamente
+3) El método poner(double) no siempre está poniendo dinero, y se puede delegar la responsabilidad de
+la validación
+4) ¿Por qué no agrego el movimiento directamente desde la cuenta, en vez de pedirselo al movimiento que
+se agregue a mí, cuando tengo un atributo y un método para ello?
+5) El método sacar repite lógica en la primera validación, y también se podría abstraer.
+6) No necesito definir getMovimientos si solo lo va a usar la misma clase
+7) Hay métodos de más para los movimientos, con tener uno que valide si es depósito, y otro si es del
+día de hoy alcanza y sobra
